@@ -26,6 +26,11 @@ p {
     user-select: none;
 }
 
+.text {
+    display: grid;
+    justify-items: center;
+}
+
 .question {
     font-size: 3rem;
     font-weight: 500;
