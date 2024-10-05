@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png"/>
+    <title>TKD</title>
+    <script src="translations.js" defer></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onclick="updateScreen()">
+    <div>
+        <p class="question">"</p>
+        <p class="answer">"</p>
+    </div>
+    <div class = "buttons">
+        <div onclick="answer(true, this)" class="button right">
+            <img src="tick.svg" alt="tick">
+        </div>
+        <div onclick="answer(false,this)"class="button wrong">
+            <img src="cross.svg" alt="cross">
+        </div>
+        <div class="stats">
+            <p class="top percentage">66%</p>
+            <img src="arrow.svg" alt="arrow" class="arrow">
+            <p class="bottom percentage">50%</p>
+        </div>
+    </div>
+    <div class="question-type">
+        <img src="random.svg" alt="icon">
+        <p>Random</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+:root {
+    --opacity: 0;
+    --transition-time: 0s;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #334;
+    color: white;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    padding: 0 2rem;
+}
+
+p {
+    max-width: 55ch;
+    text-align: center;
+    user-select: none;
+}
+
+.question {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.answer {
+    opacity: 0;
+    font-size: 2rem;
+    color: #ddd;
+    opacity: var(--opacity);
+}
+
+.buttons {
+    padding-top: 2.5rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.buttons > div {
+    min-width: 7.5rem;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: color-mix(in oklab, var(--col) 20%, #334);
+    border: var(--col) .5rem solid;
+    opacity: var(--opacity);
+    transform-origin: bottom right;
+    transition: opacity var(--transition-time), scale .1s, box-shadow .1s;
+}
+
+.buttons > .button:hover, .buttons > .selected {
+    background: color-mix(in oklab, var(--col) 50%, #334);
+    scale: 1.05;
+    box-shadow: .2rem .2rem .2rem #222;
+}
+
+.right {
+    --col: #3f3;
+}
+
+.right img {
+    max-width: 5rem;
+}
+
+.wrong {
+    --col: #f33;
+}
+
+.wrong img {
+    max-width: 3.5rem;
+}
+
+.buttons .stats {
+    padding: 1rem;
+    border: none;
+    --col: #334;
+    display: none;
+    height: 7.5rem;
+    align-content: center;
+}
+
+.stats p {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.stats img {
+    width: 100%;
+    filter: invert(39%) sepia(65%) saturate(5208%) hue-rotate(340deg) brightness(101%) contrast(108%);
+}
+
+.stats.up img{
+    scale: -1;
+    filter: invert(69%) sepia(97%) saturate(669%) hue-rotate(62deg) brightness(103%) contrast(102%);
+} 
+
+.question-type {
+    --word-color: #3f3;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    padding: .2rem 1.5rem; 
+    border: 2.5px solid var(--word-color);
+    border-radius: 50vw;
+    color: var(--word-color);
+    font-size: .75rem;
+    font-weight: bolder;
+    opacity: .8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.question-type img {
+    max-height: 1.5rem;
+}
+
+.question-type P {
+    width: max-content;
+    white-space: nowrap;
+}
+
+@media (orientation: portrait) {
+    html {
+      font-size: 12px;
+    }
+  }
