@@ -301,10 +301,6 @@ let translations = [
     "Ge-Baek is named after Ge-Baek, a great general in the Baek Je Dynasty (660 AD). The diagram represents his severe and strict military discipline",
   ],
   [
-    "Ge-Baek",
-    "Ge-Baek is named after Ge-Baek, a great general in the Baek Je Dynasty (660 AD). The diagram represents his severe and strict military discipline",
-  ],
-  [
     "Kwang-Gae",
     "Kwang-Gae is named after the famous Kwang-Gae-Toh-Wang, the 19th King of the Koguryo Dynasty, who regained all the lost territories including the greater part of Manchuria. The diagram represents the expansion and recovery of lost territory. The 39 movements refer to the first two figures of 391 A. D., the year he came to the throne",
   ],
