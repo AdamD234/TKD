@@ -298,7 +298,7 @@ let translations = [
   ],
   [
     "Ge-Baek",
-    "Ge-Baek is named after Ge-Baek, a great general in the Baek Je Dynasty (660 AD). The diagram represents his severe and strict military discipline",
+    "Ge-Baek is named after Ge-Baek, a great general in the Baek Je Dynasty (660 AD). The diagram represents his severe and strict military discipline (44)",
   ],
   [
     "Kwang-Gae",
@@ -306,6 +306,6 @@ let translations = [
   ],
   [
     "Po-Eun",
-    "Po-Eun is the pseudonym of a loyal subject Chong Mong-Chu (1400) who was a famous poet and whose poem 'I would not serve a second master though I might be crucified a hundred times' is know to every Korean. He was also a pioneer in the field of physics. The diagram represents his unerring loyalty to the king and country towards the end of the Koryo Dynasty",
+    "Po-Eun is the pseudonym of a loyal subject Chong Mong-Chu (1400) who was a famous poet and whose poem 'I would not serve a second master though I might be crucified a hundred times' is know to every Korean. He was also a pioneer in the field of physics. The diagram represents his unerring loyalty to the king and country towards the end of the Koryo Dynasty (36)",
   ],
 ];
