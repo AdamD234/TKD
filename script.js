@@ -24,7 +24,7 @@ if (document.cookie == ""){
   percentages = document.cookie.split(`; percentages=`).pop().split(';')[0].split(",");
 }
 
-if (percentages.includes("NaN")) {
+if (percentages.includes("NaN") || translations.length != answeredQuestions.length) {
   answeredQuestions = new Array(translations.length).fill(0);
   correctQuestions = new Array(translations.length).fill(0);
   percentages = new Array(translations.length).fill(0);
