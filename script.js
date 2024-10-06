@@ -24,14 +24,10 @@ if (document.cookie == ""){
   percentages = document.cookie.split(`; percentages=`).pop().split(';')[0].split(",");
 }
 
-if (percentages.includes(NaN)) {
-  for(i in percentages) {
-    if(isNaN(percentages[i])){
-      answeredQuestions[i] = 0;
-      correctQuestions[i] = 0;
-      percentages[i] = 0;
-    }
-  }
+if (percentages.includes("NaN")) {
+  answeredQuestions = new Array(translations.length).fill(0);
+  correctQuestions = new Array(translations.length).fill(0);
+  percentages = new Array(translations.length).fill(0);
   document.cookie = "answered=" + answeredQuestions.toString() + "; expires=Thu, 31 Oct 2024 12:00:00 UTC";
   document.cookie = "correct=" + correctQuestions.toString() + "; expires=Thu, 31 Oct 2024 12:00:00 UTC";
   document.cookie = "percentages=" + percentages.toString() + "; expires=Thu, 31 Oct 2024 12:00:00 UTC";
