@@ -2,13 +2,14 @@
   --opacity: 0;
   --transition-time: 0s;
   --white: #eee;
-  --yellow: #ff3;
-  --green: #3f3;
+  --yellow: #dd3;
+  --green: #282;
   --blue: #33f;
   --red: #f33;
   --black: #111;
   --orange: #f90;
   --light-blue: #88f;
+  --lime: #3f3;
   --background: #334;
 }
 
@@ -86,7 +87,7 @@ p {
 }
 
 .right {
-  --col: var(--green);
+  --col: var(--lime);
 }
 
 .right img {

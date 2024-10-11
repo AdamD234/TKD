@@ -55,7 +55,7 @@ function nextQuestion() {
   let questionType = Math.random() * 20;
   if (questionType < 10){
     questionNumber = Math.round(Math.random() * translations.length);
-    questionTypeEl.style.setProperty("--word-color", "var(--green)");
+    questionTypeEl.style.setProperty("--word-color", "var(--lime)");
     questionTypeEl.childNodes[1].src = "random.svg";
     questionTypeEl.childNodes[3].innerHTML = "Random";
   } else if (questionType < 15){
