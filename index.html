@@ -3,22 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./favicon.ico"/>
+    <link rel="icon" type="image/x-image" href="/favicon.ico"/>
     <title>TKD</title>
     <script src="translations.js" defer></script>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body onclick="updateScreen()">
+    <header>
+        <div class="question-type">
+            <img src="random.svg" alt="icon">
+            <p>Random</p>
+            
+        </div>
+        <svg class ="belt" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 256 256">
+            <rect class="main" fill="#ff0000" x="33" y="85" width="190" height="33"/>
+            <rect class="tag" fill="#000000" x="32" y="96" width="192" height="11"/>
+            <rect fill="#0000" x="32" y="84" width="192" height="35" stroke-width="2" stroke="#333344"/>
+            <rect class="main" transform="rotate(70 147.126 133.305)" fill="#ff0000" x="100" y="115" width="92" height="33"/>
+            <rect class="tag" transform="rotate(70 147.126 133.305)" fill="#000000" x="100" y="126" width="93" height="11"/>
+            <rect transform="rotate(70 147.126 133.305)" fill="#0000" x="97" y="112" width="98" height="39" stroke-width="6" stroke="#333344"/>
+            <rect class="main" transform="rotate(120 104.173 125.943)" fill="#ff0000" x="45" y="110" width="117" height="33"/>
+            <rect class="tag" transform="rotate(120 104.173 125.943)" fill="#000000" x="45" y="121" width="118" height="11"/>
+            <rect transform="rotate(120 104.173 125.943)" fill="#0000" x="42" y="107" width="123" height="39" stroke-width="6" stroke="#333344"/>
+            <rect fill="#333344" x="33" y="65" width="190" height="20"/>
+        </svg>
+    </header>
     <div class="text">
         <p class="question">"</p>
         <p class="answer">"</p>
     </div>
     <div class = "buttons">
-        <div onclick="answer(true, this)" class="button right">
+        <div onclick="answer(true, this)" onmousedown="pressedEffect(this)" class="button right">
             <img src="tick.svg" alt="tick">
         </div>
-        <div onclick="answer(false,this)"class="button wrong">
+        <div onclick="answer(false,this)" onmousedown="pressedEffect(this)" class="button wrong">
             <img src="cross.svg" alt="cross">
         </div>
         <div class="stats">
@@ -27,9 +46,6 @@
             <p class="bottom percentage">50%</p>
         </div>
     </div>
-    <div class="question-type">
-        <img src="random.svg" alt="icon">
-        <p>Random</p>
-    </div>
+   
 </body>
 </html>

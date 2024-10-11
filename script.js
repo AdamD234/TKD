@@ -9,7 +9,6 @@ const questionTypeEl = document.querySelector(".question-type");
 const root = document.documentElement;
 let questionNumber;
 let question;
-let belt;
 let answeredQuestions;
 let correctQuestions;
 let percentages;
@@ -32,7 +31,6 @@ if (percentages.includes("NaN") || translations.length != answeredQuestions.leng
   document.cookie = "correct=" + correctQuestions.toString() + "; expires=Thu, 31 Oct 2024 12:00:00 UTC";
   document.cookie = "percentages=" + percentages.toString() + "; expires=Thu, 31 Oct 2024 12:00:00 UTC";
 }
-
 updateScreen();
 
 document.addEventListener("keyup", (event) => {
@@ -57,24 +55,24 @@ function nextQuestion() {
   let questionType = Math.random() * 20;
   if (questionType < 10){
     questionNumber = Math.round(Math.random() * translations.length);
-    questionTypeEl.style.setProperty("--word-color", "#3f3");
+    questionTypeEl.style.setProperty("--word-color", "var(--green)");
     questionTypeEl.childNodes[1].src = "random.svg";
     questionTypeEl.childNodes[3].innerHTML = "Random";
   } else if (questionType < 15){
     let lowestPercentages = findLowest(percentages);
     questionNumber = lowestPercentages[Math.round(Math.random() * lowestPercentages.length)];
-    questionTypeEl.style.setProperty("--word-color", "#f33");
+    questionTypeEl.style.setProperty("--word-color", "var(--red)");
     questionTypeEl.childNodes[1].src = "exclamation-mark.svg";
     questionTypeEl.childNodes[3].innerHTML = "Low Accuracy";
   }  else if (questionType < 19){
     let leastAsked = findLowest(answeredQuestions);
     questionNumber = leastAsked[Math.round(Math.random() * leastAsked.length)];
-    questionTypeEl.style.setProperty("--word-color", "#f90");
+    questionTypeEl.style.setProperty("--word-color", "var(--orange)");
     questionTypeEl.childNodes[1].src = "eye-closed.svg";
     questionTypeEl.childNodes[3].innerHTML = "Infrequent";
   } else {
     questionNumber = Math.round(Math.random() * (translations.length - 233)) + 233;
-    questionTypeEl.style.setProperty("--word-color", "#88f");
+    questionTypeEl.style.setProperty("--word-color", "var(--light-blue)");
     questionTypeEl.childNodes[1].src = "paragraph.svg";
     questionTypeEl.childNodes[3].innerHTML = "Longer Answer";
   }
@@ -85,30 +83,31 @@ function nextQuestion() {
   }
   question = translations[questionNumber];
   englishOrKorean = Math.round(Math.random());
-  if (questionNumber < 38) {
-    belt = "White";
-  } else if (questionNumber < 60) {
-    belt = "Yellow Tag";
-  } else if (questionNumber < 72) {
-    belt = "Yellow";
-  } else if (questionNumber < 90) {
-    belt = "Green Tag";
-  } else if (questionNumber < 113) {
-    belt = "Green";
-  } else if (questionNumber < 132) {
-    belt = "Blue Tag";
-  } else if (questionNumber < 163) {
-    belt = "Blue";
-  } else if (questionNumber < 177) {
-    belt = "Red Tag";
-  } else if (questionNumber < 194) {
-    belt = "Red";
-  } else if (questionNumber < 207) {
-    belt = "Black Tag";
-  } else if (questionNumber < 233) {
-    belt = "Black";
+  if (questionNumber < 38 || questionNumber == 233 || questionNumber == 239) {
+    belt("white");
+  } else if (questionNumber < 60 || questionNumber == 234 || questionNumber == 240) {
+    belt("white","yellow");
+  } else if (questionNumber < 72 || questionNumber == 241) {
+    belt("yellow");
+  } else if (questionNumber < 90 || questionNumber == 235 || questionNumber == 242) {
+    belt("yellow","green");
+  } else if (questionNumber < 113 || questionNumber == 243) {
+    belt("green");
+  } else if (questionNumber < 132 || questionNumber == 236 || questionNumber == 244) {
+    belt("green","blue");
+  } else if (questionNumber < 163 || questionNumber == 245) {
+    belt("blue");
+  } else if (questionNumber < 177 || questionNumber == 237 || questionNumber == 246) {
+    belt("blue","red");
+  } else if (questionNumber < 194 || questionNumber == 247) {
+    belt("red");
+  } else if (questionNumber < 207 || questionNumber == 238 || questionNumber == 248) {
+    belt("red","black");
   } else {
-    belt = "pattern/ meaning";
+    belt("black");
+  }
+  
+  if(questionNumber > 232) {
     englishOrKorean = 0;
   }
   root.style.setProperty("--opacity", "0");
@@ -148,12 +147,15 @@ function answer(correct, buttonPressed) {
     }
     otherButton.style.display = "none";
     stats.style.display = "grid";
-    buttonPressed.classList.add("selected");
+    pressedEffect(buttonPressed)
     stage = 3;
     document.cookie = "answered=" + answeredQuestions.toString() + "; expires=Thu, 31 Oct 2024 12:00:00 UTC";
     document.cookie = "correct=" + correctQuestions.toString() + "; expires=Thu, 31 Oct 2024 12:00:00 UTC";
     document.cookie = "percentages=" + percentages.toString() + "; expires=Thu, 31 Oct 2024 12:00:00 UTC";
   }
+}
+function pressedEffect(buttonPressed) {
+  buttonPressed.classList.add("selected");
 }
 
 function resetButtons() {
@@ -183,4 +185,13 @@ function findLowest(array) {
     }
   }
   return output;
+}
+
+function belt(main, tag) {
+  root.style.setProperty("--main",`var(--${main})`);
+  if(tag){
+    root.style.setProperty("--tag",`var(--${tag})`);
+  } else {
+    root.style.setProperty("--tag",`var(--${main})`);
+  }
 }
